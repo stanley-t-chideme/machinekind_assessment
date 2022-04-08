@@ -13,20 +13,27 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
+      Auth: {
+        screens: {
+          SignIn: 'signin',
+        }
+      },
       Root: {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'one',
+              HomeScreen: 'one',              
             },
           },
           TabTwo: {
             screens: {
-              TabTwoScreen: 'two',
+              VehiclesScreen: 'two',
             },
           },
         },
       },
+      QRCodeScanner: 'qrcode-scan',
+      VehicleView: 'vehicle-view',
       Modal: 'modal',
       NotFound: '*',
     },
