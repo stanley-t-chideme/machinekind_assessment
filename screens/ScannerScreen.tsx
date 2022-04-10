@@ -3,7 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useEffect, useState } from 'react';
 import { Alert, Animated, Button, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
-import Torch from 'react-native-torch';
 import { Text, View } from '../components/Themed';
 import { getCurrentUser } from '../store/auth/slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -50,10 +49,6 @@ export default function QRCodeScannerScreen({ navigation }: RootStackScreenProps
     }
   }
 
-  useEffect(() => {
-    Torch.switchState(torched)
-  }, [torched])
-
   return (
     <View style={styles.container}>
       <BarCodeScanner
@@ -76,7 +71,6 @@ export default function QRCodeScannerScreen({ navigation }: RootStackScreenProps
         </Animated.View>
       </View>
       <Pressable onPress={() => {
-        setTorched(!torched)
       }} style={{ position: 'absolute', bottom: '2%', left: '2%', elevation: 10, backgroundColor: 'grey', borderRadius: 100, padding: 10 }}>
         <Ionicons name="flashlight" size={30} color="white" />
       </Pressable>
